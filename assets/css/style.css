@@ -25,4 +25,143 @@ html {
 body {
   font-size: 1.6rem;
   font-family: 'Red Hat Display', sans-serif;
+  color: var(--desaturated-blue);
+  background-image: linear-gradient(
+      to right bottom,
+      hsla(225, 100%, 94%, 0.726),
+      hsla(225, 100%, 94%, 0.726)
+    ),
+    url(../images/pattern-background-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  text-transform: none;
+}
+
+/* Card Component */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-inline-size: 45rem;
+  writing-mode: horizontal-tb;
+  background-color: var(--very-pale-blue);
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 2rem;
+}
+
+.card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 5rem;
+}
+
+h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--dark-blue);
+  text-align: center;
+}
+
+.card__description {
+  text-align: center;
+  line-height: 1.5;
+}
+
+.card__plan {
+  display: flex;
+  align-items: center;
+  background-color: hsla(225, 100%, 94%, 0.3);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.card__plan--annual {
+  margin: 0 auto 0 2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--dark-blue);
+}
+
+.card__plan a {
+  color: var(--primary-bright-blue);
+  font-size: 1.4rem;
+  font-weight: 700;
+  transition: all 0.2s;
+  text-decoration: underline;
+}
+
+.card__plan a:hover {
+  color: hsla(245, 75%, 52%, 0.7);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-block;
+  border: none;
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 1.5rem 0;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.btn-blue {
+  background-color: var(--primary-bright-blue);
+  box-shadow: 0 1rem 3rem hsla(245, 75%, 52%, 0.3);
+}
+
+.btn-blue a {
+  color: var(--very-pale-blue);
+}
+
+.btn-blue:hover {
+  background-color: hsla(245, 75%, 52%, 0.7);
+  cursor: pointer;
+}
+
+.btn-white {
+  background-color: var(--very-pale-blue);
+  margin-top: 1rem;
+}
+
+.btn-white a {
+  color: inherit;
+}
+
+.btn-white:hover {
+  color: var(--dark-blue);
+  cursor: pointer;
+}
+
+/* Footer */
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+footer a {
+  color: var(--primary-bright-blue);
 }
