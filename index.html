@@ -54,98 +54,100 @@
         </div>
       </section>
 
-      <section class="cta">
-        <div>
-          <h1 class="margin-bottom-sm">Enter your payment details</h1>
+      <section class="pop-up">
+        <div class="cta">
+          <div>
+            <h1 class="margin-bottom-sm">Enter your payment details</h1>
 
-          <form class="cta-form" action="#">
-            <div>
-              <label for="card-number">Card Number</label>
-              <input
-                id="card-number"
-                type="number"
-                placeholder="Card Number"
-                required
-              />
-            </div>
-
-            <div>
-              <label for="address">Address</label>
-              <input
-                id="address"
-                type="text"
-                placeholder="Street Address"
-                required
-              />
-            </div>
-
-            <div>
-              <label for="email">Email</label>
-              <input
-                id="email"
-                type="email"
-                placeholder="your_email@here.com"
-                required
-              />
-            </div>
-
-            <div>
-              <label for="country">Country</label>
-              <select id="country" required>
-                <option value="">Please choose one option</option>
-                <option value="USA">United States</option>
-                <option value="Netherlands">Netherlands</option>
-                <option value="Brazil">Brazil</option>
-                <option value="Sweden">Sweden</option>
-                <option value="France">France</option>
-              </select>
-            </div>
-          </form>
-        </div>
-
-        <div class="cta-value">
-          <h3 class="margin-bottom-sm">Your order</h3>
-
-          <form action="#">
-            <h3 class="margin-bottom-vsm">Billing cycle</h3>
-
-            <div class="plan-type">
+            <form class="cta-form" action="#">
               <div>
+                <label for="card-number">Card Number</label>
                 <input
-                  type="radio"
-                  id="annual"
-                  value="annual"
-                  name="plan-type"
-                  checked
+                  id="card-number"
+                  type="number"
+                  placeholder="Card Number"
+                  required
                 />
-                <label for="annual"> Annual <span>(Save 10%)</span> </label>
               </div>
 
               <div>
+                <label for="address">Address</label>
                 <input
-                  type="radio"
-                  id="monthly"
-                  value="monthly"
-                  name="plan-type"
+                  id="address"
+                  type="text"
+                  placeholder="Street Address"
+                  required
                 />
-                <label for="monthly"> Monthly</label>
               </div>
-            </div>
-          </form>
 
-          <div class="plan-price">
-            <div>
-              <p>1 Prime Plan</p>
-              <span>$59.99</span>
-            </div>
+              <div>
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="your_email@here.com"
+                  required
+                />
+              </div>
 
-            <div>
-              <p><strong>Total</strong></p>
-              <span><strong>$59.99</strong></span>
-            </div>
+              <div>
+                <label for="country">Country</label>
+                <select id="country" required>
+                  <option value="">Please choose one option</option>
+                  <option value="USA">United States</option>
+                  <option value="Netherlands">Netherlands</option>
+                  <option value="Brazil">Brazil</option>
+                  <option value="Sweden">Sweden</option>
+                  <option value="France">France</option>
+                </select>
+              </div>
+            </form>
           </div>
 
-          <button class="btn btn-blue btn--form">Continue</button>
+          <div class="cta-value">
+            <h3 class="margin-bottom-sm">Your order</h3>
+
+            <form action="#">
+              <h3 class="margin-bottom-vsm">Billing cycle</h3>
+
+              <div class="plan-type">
+                <div>
+                  <input
+                    type="radio"
+                    id="annual"
+                    value="annual"
+                    name="plan-type"
+                    checked
+                  />
+                  <label for="annual"> Annual <span>(Save 10%)</span> </label>
+                </div>
+
+                <div>
+                  <input
+                    type="radio"
+                    id="monthly"
+                    value="monthly"
+                    name="plan-type"
+                  />
+                  <label for="monthly"> Monthly</label>
+                </div>
+              </div>
+            </form>
+
+            <div class="plan-price">
+              <div>
+                <p>1 Prime Plan</p>
+                <span>$59.99</span>
+              </div>
+
+              <div>
+                <p><strong>Total</strong></p>
+                <span><strong>$59.99</strong></span>
+              </div>
+            </div>
+
+            <button class="btn btn-blue btn--form">Continue</button>
+          </div>
         </div>
       </section>
     </main>
