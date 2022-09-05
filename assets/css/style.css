@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
+
 /* Global settings */
 
 :root {
@@ -49,6 +50,30 @@ a:visited {
   text-transform: none;
 }
 
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(107, 106, 160, 0.5);
+}
+
+/* Typography */
+h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--dark-blue);
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--dark-blue);
+}
+
+h3 {
+  color: var(--dark-blue);
+  font-size: 1.8rem;
+}
+
 /* Card Component */
 
 .card {
@@ -68,13 +93,6 @@ a:visited {
   flex-direction: column;
   gap: 2rem;
   padding: 5rem;
-}
-
-h1 {
-  font-size: 2.8rem;
-  font-weight: 900;
-  color: var(--dark-blue);
-  text-align: center;
 }
 
 .card__description {
@@ -108,12 +126,6 @@ h1 {
   margin: 0 auto 0 2rem;
 }
 
-h2 {
-  font-size: 1.6rem;
-  font-weight: 900;
-  color: var(--dark-blue);
-}
-
 /* Buttons */
 
 .btn {
@@ -130,9 +142,6 @@ h2 {
 .btn-blue {
   background-color: var(--primary-bright-blue);
   box-shadow: 0 1rem 3rem hsla(245, 75%, 52%, 0.3);
-}
-
-.btn-blue a {
   color: var(--very-pale-blue);
 }
 
@@ -144,15 +153,16 @@ h2 {
 .btn-white {
   background-color: var(--very-pale-blue);
   margin-top: 1rem;
-}
-
-.btn-white a {
   color: inherit;
 }
 
 .btn-white:hover {
   color: var(--dark-blue);
   cursor: pointer;
+}
+
+.btn--form {
+  margin-top: auto;
 }
 
 /* Footer */
@@ -165,6 +175,96 @@ footer {
 footer a {
   color: var(--primary-bright-blue);
 }
+
+/* CTA SECTION */
+
+.cta {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10rem;
+  padding: 3rem;
+  background-color: var(--very-pale-blue);
+  border-radius: 20px;
+  /* min-height: 50rem;
+  max-width: 120rem; */
+  box-shadow: 0 0.2rem 1rem hsla(245, 75%, 52%, 0.14);
+}
+
+.cta-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  color: var(--dark-blue);
+}
+
+.cta-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.cta-form input,
+.cta-form select {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.6rem;
+  font-family: inherit;
+  background-color: hsla(226, 28%, 59%, 0.089);
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 0.2rem 0.02rem hsla(245, 75%, 52%, 0.14);
+}
+
+.cta-form input::placeholder,
+.cta-form select {
+  color: var(--desaturated-blue);
+}
+
+.cta *:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(107, 106, 160, 0.5);
+}
+
+.cta-value {
+  display: flex;
+  flex-direction: column;
+}
+
+.cta-value form {
+  margin-top: 1rem;
+}
+
+.plan-type {
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  border-bottom: 1px solid var(--desaturated-blue);
+  padding-bottom: 2rem;
+  color: var(--dark-blue);
+}
+
+.plan-type div span {
+  color: var(--primary-bright-blue);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.margin-bottom-vsm {
+  margin-bottom: 2rem;
+}
+
+.margin-bottom-sm {
+  margin-bottom: 3rem;
+}
+
+.plan-price div {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+  color: var(--dark-blue);
+}
+
+/* MEDIA QUERY */
 
 @media only screen and (max-width: 27.5em) {
   html {
