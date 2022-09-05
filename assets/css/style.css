@@ -276,6 +276,33 @@ footer a {
 
 /* MEDIA QUERY */
 
+@media only screen and (max-width: 62.5em) {
+  .cta {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+  }
+}
+
+@media only screen and (max-width: 48.5em) {
+  .cta {
+    margin: 2rem;
+    grid-template-columns: 1fr;
+  }
+
+  .cta-value form {
+    margin-top: 0;
+  }
+
+  .plan-type {
+    justify-content: space-around;
+    gap: 0;
+  }
+
+  .btn--form {
+    margin-top: 2rem;
+  }
+}
+
 @media only screen and (max-width: 27.5em) {
   html {
     font-size: 60%;
