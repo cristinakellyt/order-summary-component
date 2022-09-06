@@ -180,7 +180,6 @@ footer a {
 
 .pop-up {
   position: fixed;
-  display: flex;
   justify-content: center;
   align-items: center;
   top: 0;
