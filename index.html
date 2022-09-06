@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <title>Frontend Mentor | Order summary card</title>
     <link
       rel="icon"
       type="image/png"
@@ -11,8 +11,8 @@
       href="assets/images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
-
-    <title>Frontend Mentor | Order summary card</title>
+    <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+    <script src="assets/scripts/vendor.js" defer></script>
   </head>
 
   <body>
@@ -48,13 +48,15 @@
             <a href="#">Change</a>
           </div>
 
-          <button class="btn btn-blue">Proceed to Payment</button>
+          <button onclick="popUp()" class="btn btn-blue">
+            Proceed to Payment
+          </button>
 
           <button class="btn btn-white">Cancel Order</button>
         </div>
       </section>
 
-      <section class="pop-up">
+      <section id="pop-up" class="pop-up">
         <div class="cta">
           <div class="cta-data">
             <h1 class="margin-bottom-sm">Enter your payment details</h1>
@@ -146,6 +148,13 @@
 
             <button class="btn btn-blue btn--form">Continue</button>
           </div>
+          <span id="close-icon" onclick="closeWindow()" class="close-icon">
+            <iconify-icon
+              icon="ant-design:close-circle-outlined"
+              width="30"
+              height="30"
+            ></iconify-icon>
+          </span>
         </div>
       </section>
     </main>

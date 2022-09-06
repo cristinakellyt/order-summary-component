@@ -189,6 +189,7 @@ footer a {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.521);
   backdrop-filter: blur(1px);
+  display: none;
 }
 
 .cta {
@@ -199,6 +200,7 @@ footer a {
   background-color: var(--very-pale-blue);
   border-radius: 20px;
   box-shadow: 0 0.2rem 1rem hsla(245, 75%, 52%, 0.14);
+  position: relative;
 }
 
 .cta-form {
@@ -335,4 +337,13 @@ footer a {
   .card__plan--annual {
     margin: 0;
   }
+}
+
+.close-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 2rem;
+  cursor: pointer;
+  color: var(--dark-blue);
 }
