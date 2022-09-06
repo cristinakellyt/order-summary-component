@@ -180,15 +180,38 @@ footer a {
 
 .pop-up {
   position: fixed;
+  display: none;
   justify-content: center;
   align-items: center;
   top: 0;
   left: 0;
   min-height: 100vh;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.521);
-  backdrop-filter: blur(1px);
-  display: none;
+  backdrop-filter: blur(2px);
+}
+
+@keyframes slidein {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideout {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
 }
 
 .cta {
@@ -200,6 +223,14 @@ footer a {
   border-radius: 20px;
   box-shadow: 0 0.2rem 1rem hsla(245, 75%, 52%, 0.14);
   position: relative;
+}
+
+.slidein-animation {
+  animation: slidein 0.5s ease;
+}
+
+.slideout-animation {
+  animation: slideout 0.5s ease;
 }
 
 .cta-form {

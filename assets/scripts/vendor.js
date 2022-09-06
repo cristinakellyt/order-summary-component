@@ -1,31 +1,24 @@
-// const paymentWindow = document.getElementById('btn-payment');
+const cta = document.getElementById('cta');
+const popUp = document.getElementById('pop-up');
+const btnPayment = document.getElementById('btn-payment');
+const btnBack = document.getElementById('btn-back');
 
-// function popUpHandler(popUp) {
-//   let x = document.getElementById('btn-payment');
-
-//   showStuff();
-// }
-
-// paymentWindow.addEventListener('click', popUpHandler);
-
-// function showStuff(id) {
-//   document.getElementById(id).style.display = 'none';
-// }
-
-function popUp() {
-  const paymentWindow = document.getElementById('pop-up');
-  if (paymentWindow.style.display === 'none') {
-    paymentWindow.style.display = 'flex';
-  } else {
-    paymentWindow.style.display = 'none';
-  }
+function showPopUp() {
+  popUp.classList.remove('slideout-animation');
+  cta.classList.add('slidein-animation');
+  popUp.style.display = 'flex';
 }
 
-function closeWindow() {
-  const closeWindow = document.getElementById('pop-up');
-  if (closeWindow.style.display === 'none') {
-    closeWindow.style.display = 'flex';
-  } else {
-    closeWindow.style.display = 'none';
-  }
+function closePopUp() {
+  cta.classList.remove('slidein-animation');
+  popUp.classList.add('slideout-animation');
+
+  setTimeout(delayClosePopUp, 320);
 }
+
+function delayClosePopUp() {
+  popUp.style.display = 'none';
+}
+
+btnPayment.addEventListener('click', showPopUp);
+btnBack.addEventListener('click', closePopUp);
