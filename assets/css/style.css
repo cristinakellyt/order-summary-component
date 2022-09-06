@@ -165,17 +165,6 @@ h3 {
   margin-top: auto;
 }
 
-/* Footer */
-
-footer {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-footer a {
-  color: var(--primary-bright-blue);
-}
-
 /* CTA SECTION */
 
 .pop-up {
