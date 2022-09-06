@@ -20,7 +20,7 @@
 }
 
 html {
-  font-size: 62.7%;
+  font-size: 62.5%;
 }
 
 body {
@@ -307,7 +307,7 @@ footer a {
 
 @media only screen and (max-width: 27.5em) {
   html {
-    font-size: 60%;
+    font-size: 58%;
   }
 
   body {
