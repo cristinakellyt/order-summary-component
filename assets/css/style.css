@@ -287,7 +287,7 @@ footer a {
 
 @media only screen and (max-width: 48.5em) {
   .cta {
-    margin: 2rem;
+    margin: 1rem;
     grid-template-columns: 1fr;
   }
 
@@ -337,13 +337,4 @@ footer a {
   .card__plan--annual {
     margin: 0;
   }
-}
-
-.close-icon {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 2rem;
-  cursor: pointer;
-  color: var(--dark-blue);
 }
