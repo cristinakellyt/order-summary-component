@@ -168,7 +168,7 @@ h3 {
 /* CTA SECTION */
 
 .pop-up {
-  position: fixed;
+  position: absolute;
   display: none;
   justify-content: center;
   align-items: center;
