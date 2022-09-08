@@ -32,15 +32,28 @@ function showPopUpHandler() {
   cta.classList.add('slidein-animation');
   popUp.style.display = 'flex';
 
+  if (planType.textContent == 'Annual Plan') {
+    btnAnnual.checked = true;
+    setPlanValue(dollarSign, annualPrice);
+    setTotalValue(dollarSign, annualPrice, feeValue);
+  } else {
+    btnMonthly.checked = true;
+    setPlanValue(dollarSign, monthlyPrice);
+    setTotalValue(dollarSign, monthlyPrice, feeValue);
+    setCardPlanAndPrice('Monthly', dollarSign, monthlyPrice, '/month');
+  }
   fee.textContent = dollarSign + parseFloat(feeValue).toPrecision(3);
-  setPlanValue(dollarSign, annualPrice);
-  setTotalValue(dollarSign, annualPrice, feeValue);
 }
 
 function closePopUpHandler() {
   cta.classList.remove('slidein-animation');
   popUp.classList.add('slideout-animation');
 
+  if (btnAnnual.checked == true) {
+    setCardPlanAndPrice('Annual Plan', dollarSign, annualPrice, '/year');
+  } else {
+    setCardPlanAndPrice('Monthly', dollarSign, monthlyPrice, '/month');
+  }
   setTimeout(delayClosePopUp, 320);
 }
 
@@ -76,6 +89,3 @@ btnBack.addEventListener('click', closePopUpHandler);
 btnAnnual.addEventListener('click', showAnnualPriceHandler);
 btnMonthly.addEventListener('click', showMonthlyPriceHandler);
 btnChange.addEventListener('click', changePlanHandler);
-
-// O plano escolhido na tela principal, deve ser o defaullt da tela proceeed to payment.
-//lembre-se que vc tem o poder de fazer o que quiser ons metodso de abrir e fechar o pop-up
