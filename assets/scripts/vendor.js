@@ -13,6 +13,11 @@ const annualPrice = 59.99;
 const monthlyPrice = 66.65;
 const feeValue = 1.0;
 
+function setTotalValue(dollar, billingCycle, feePrice) {
+  totalValue.textContent =
+    dollar + parseFloat(billingCycle + feePrice).toPrecision(4);
+}
+
 function showPopUp() {
   popUp.classList.remove('slideout-animation');
   cta.classList.add('slidein-animation');
@@ -20,8 +25,8 @@ function showPopUp() {
 
   planValue.textContent = dollarSign + annualPrice;
   fee.textContent = dollarSign + parseFloat(feeValue).toPrecision(3);
-  totalValue.textContent =
-    '$' + parseFloat(annualPrice + feeValue).toPrecision(4);
+
+  setTotalValue(dollarSign, annualPrice, feeValue);
 }
 
 function closePopUp() {
@@ -37,14 +42,12 @@ function delayClosePopUp() {
 
 function showAnnualPrice() {
   planValue.textContent = dollarSign + annualPrice;
-  totalValue.textContent =
-    '$' + parseFloat(annualPrice + feeValue).toPrecision(4);
+  setTotalValue(dollarSign, annualPrice, feeValue);
 }
 
 function showMonthlyPrice() {
   planValue.textContent = dollarSign + monthlyPrice;
-  totalValue.textContent =
-    '$' + parseFloat(monthlyPrice + feeValue).toPrecision(4);
+  setTotalValue(dollarSign, monthlyPrice, feeValue);
 }
 
 btnPayment.addEventListener('click', showPopUp);
@@ -52,7 +55,7 @@ btnBack.addEventListener('click', closePopUp);
 btnAnnual.addEventListener('click', showAnnualPrice);
 btnMonthly.addEventListener('click', showMonthlyPrice);
 
-// setTotalValue() settar o value do totoal value
+// setTotalValue() settar o value do totoal value - OK
 // setPlanValue() settart o value to Plan price
 // Inticializacao deve ser feita chamando as funcoes criadas acima.
 // O botao de change do carde initiacal quando clicado vai ficar alternando entre o valor de Anual and montly.
