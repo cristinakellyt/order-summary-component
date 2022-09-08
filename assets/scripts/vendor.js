@@ -18,14 +18,17 @@ function setTotalValue(dollar, billingCycle, feePrice) {
     dollar + parseFloat(billingCycle + feePrice).toPrecision(4);
 }
 
+function setPlanValue(dollar, billingCycle) {
+  planValue.textContent = dollar + billingCycle;
+}
+
 function showPopUp() {
   popUp.classList.remove('slideout-animation');
   cta.classList.add('slidein-animation');
   popUp.style.display = 'flex';
 
-  planValue.textContent = dollarSign + annualPrice;
+  setPlanValue(dollarSign, annualPrice);
   fee.textContent = dollarSign + parseFloat(feeValue).toPrecision(3);
-
   setTotalValue(dollarSign, annualPrice, feeValue);
 }
 
@@ -41,12 +44,12 @@ function delayClosePopUp() {
 }
 
 function showAnnualPrice() {
-  planValue.textContent = dollarSign + annualPrice;
+  setPlanValue(dollarSign, annualPrice);
   setTotalValue(dollarSign, annualPrice, feeValue);
 }
 
 function showMonthlyPrice() {
-  planValue.textContent = dollarSign + monthlyPrice;
+  setPlanValue(dollarSign, monthlyPrice);
   setTotalValue(dollarSign, monthlyPrice, feeValue);
 }
 
@@ -56,7 +59,7 @@ btnAnnual.addEventListener('click', showAnnualPrice);
 btnMonthly.addEventListener('click', showMonthlyPrice);
 
 // setTotalValue() settar o value do totoal value - OK
-// setPlanValue() settart o value to Plan price
+// setPlanValue() settart o value to Plan price -OK
 // Inticializacao deve ser feita chamando as funcoes criadas acima.
 // O botao de change do carde initiacal quando clicado vai ficar alternando entre o valor de Anual and montly.
 // O plano escolhido na tela principal, deve ser o defaullt da tela proceeed to payment.
