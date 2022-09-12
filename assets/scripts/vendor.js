@@ -1,14 +1,14 @@
-const cta = document.getElementById('cta');
-const popUp = document.getElementById('pop-up');
 const btnPayment = document.getElementById('btn-payment');
 const btnBack = document.getElementById('btn-back');
-
 const btnAnnual = document.getElementById('annual');
 const btnMonthly = document.getElementById('monthly');
+const btnChange = document.getElementById('btn-change');
+
+const cta = document.getElementById('cta');
+const popUp = document.getElementById('pop-up');
 const planValue = document.getElementById('plan-value');
 const totalValue = document.getElementById('total-value');
 const fee = document.getElementById('fee');
-const btnChange = document.getElementById('btn-change');
 const planType = document.getElementById('plan-type');
 const planPrice = document.getElementById('plan-price');
 const dollarSign = '$';

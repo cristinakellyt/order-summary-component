@@ -1,14 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
 
+/* *********************** */
 /* GLOBAL SETTINGS */
+/* *********************** */
 
 :root {
-  --primary-pale-blue: hsl(225, 100%, 94%);
-  --primary-bright-blue: hsl(245, 75%, 52%);
-
   --very-pale-blue: hsl(225, 100%, 98%);
-  --desaturated-blue: hsl(224, 23%, 55%);
+  --primary-pale-blue: hsl(225, 100%, 94%);
+  --primary-pale-blue-transp1: hsla(225, 100%, 94%, 0.726);
+  --primary-pale-blue-transp2: hsla(225, 100%, 94%, 0.3);
+
+  --primary-bright-blue: hsl(245, 75%, 52%);
+  --primary-bright-blue-transp1: hsla(245, 75%, 52%, 0.7);
+  --primary-bright-blue-transp2: hsla(245, 75%, 52%, 0.14);
+  --primary-bright-blue-transp3: hsla(245, 75%, 52%, 0.3);
+
   --dark-blue: hsl(223, 47%, 23%);
+
+  --desaturated-blue: hsl(224, 23%, 55%);
+  --pale-blue-transp1: hsla(241, 22%, 52%, 0.5);
+
+  --gray-pale: hsla(226, 28%, 59%, 0.089);
+}
+
+.dark-mode {
+  --very-pale-blue: hsl(228, 86%, 25%);
+  --primary-pale-blue: hsl(226, 12%, 57%);
+  --primary-pale-blue-transp1: hsla(241, 75%, 25%, 0.726);
+  --primary-pale-blue-transp2: hsla(246, 75%, 19%, 0.48);
+
+  --primary-bright-blue: hsl(175, 100%, 47%);
+  --primary-bright-blue-transp1: hsl(191, 100%, 76%);
+  --primary-bright-blue-transp2: rgba(128, 129, 177, 0.397);
+  --primary-bright-blue-transp3: hsla(245, 75%, 52%, 0.3);
+
+  --dark-blue: hsl(240, 100%, 100%);
+
+  --desaturated-blue: hsl(0, 0%, 100%);
+  --pale-blue-transp1: hsla(0, 0%, 98%, 0.5);
+
+  --gray-pale: hsla(223, 23%, 94%, 0.089);
 }
 
 *,
@@ -29,16 +60,18 @@ body {
   color: var(--desaturated-blue);
   background-image: linear-gradient(
       to right bottom,
-      hsla(225, 100%, 94%, 0.726),
-      hsla(225, 100%, 94%, 0.726)
+      var(--primary-pale-blue-transp1),
+      var(--primary-pale-blue-transp1)
     ),
     url(../images/pattern-background-desktop.svg);
   background-repeat: no-repeat;
   background-size: contain;
+  padding: 2rem;
 }
 
 main {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
@@ -52,10 +85,13 @@ a:visited {
 
 *:focus {
   outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(107, 106, 160, 0.5);
+  box-shadow: 0 0 0 0.2rem var(--pale-blue-transp1);
 }
 
+/* *********************** */
 /* TYPOGRAPHY */
+/* *********************** */
+
 h1 {
   font-size: 2.8rem;
   font-weight: 900;
@@ -74,7 +110,9 @@ h3 {
   font-size: 1.8rem;
 }
 
+/* *********************** */
 /* CARD COMPONENT */
+/* *********************** */
 
 .card {
   display: flex;
@@ -85,7 +123,7 @@ h3 {
   border-radius: 20px;
   overflow: hidden;
   margin: 2rem;
-  box-shadow: 0 3rem 4rem hsla(245, 75%, 52%, 0.14);
+  box-shadow: 0 3rem 4rem var(--primary-bright-blue-transp2);
 }
 
 .card__text {
@@ -103,7 +141,7 @@ h3 {
 .card__plan {
   display: flex;
   align-items: center;
-  background-color: hsla(225, 100%, 94%, 0.3);
+  background-color: var(--primary-pale-blue-transp2);
   padding: 2rem;
   border-radius: 10px;
 }
@@ -117,7 +155,7 @@ h3 {
 }
 
 .card__plan a:hover {
-  color: hsla(245, 75%, 52%, 0.7);
+  color: var(--primary-bright-blue-transp1);
   cursor: pointer;
   text-decoration: underline;
 }
@@ -126,51 +164,29 @@ h3 {
   margin: 0 auto 0 2rem;
 }
 
-/* Buttons */
+/* *********************** */
+/* COLOR THEME */
+/* *********************** */
 
-.btn {
-  display: inline-block;
-  border: none;
-  font-family: 'Red Hat Display', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  padding: 1.5rem 0;
-  border-radius: 10px;
-  width: 100%;
-  transition: all 0.2s;
-}
-
-.btn-blue {
-  background-color: var(--primary-bright-blue);
-  box-shadow: 0 1rem 3rem hsla(245, 75%, 52%, 0.3);
-  color: var(--very-pale-blue);
-}
-
-.btn-blue:hover {
-  background-color: hsla(245, 75%, 52%, 0.7);
-  cursor: pointer;
-}
-
-.btn-white {
-  background-color: var(--very-pale-blue);
-  color: inherit;
-  border: 1px solid hsla(245, 75%, 52%, 0.14);
-  box-shadow: 0 0.2rem 0.02rem hsla(245, 75%, 52%, 0.14);
-}
-
-.btn-white:hover {
-  color: var(--dark-blue);
-  cursor: pointer;
-}
-
-.btn-flex {
+.color-mode {
   display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  margin-top: auto;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  color: var(--dark-blue);
+  font-size: 1.4rem;
 }
 
+.color-mode img {
+  display: inline-block;
+  height: 4rem;
+  width: 4rem;
+  cursor: pointer;
+}
+
+/* *********************** */
 /* CTA SECTION */
+/* *********************** */
 
 .pop-up {
   position: absolute;
@@ -191,8 +207,7 @@ h3 {
   padding: 3rem;
   background-color: var(--very-pale-blue);
   border-radius: 20px;
-  box-shadow: 0 0.2rem 1rem hsla(245, 75%, 52%, 0.14);
-  position: relative;
+  box-shadow: 0 0.2rem 1rem var(--primary-bright-blue-transp2);
 }
 
 .cta-form {
@@ -213,10 +228,11 @@ h3 {
   padding: 1.2rem;
   font-size: 1.6rem;
   font-family: inherit;
-  background-color: hsla(226, 28%, 59%, 0.089);
+  background-color: var(--gray-pale);
   border-radius: 10px;
   border: none;
-  box-shadow: 0 0.2rem 0.02rem hsla(245, 75%, 52%, 0.14);
+  box-shadow: 0 0.2rem 0.02rem var(--primary-bright-blue-transp2);
+  color: inherit;
 }
 
 .cta-form input::placeholder,
@@ -224,9 +240,13 @@ h3 {
   color: var(--desaturated-blue);
 }
 
+.cta-form select option {
+  background-color: var(--very-pale-blue);
+}
+
 .cta *:focus {
   outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(107, 106, 160, 0.5);
+  box-shadow: 0 0 0 0.2rem var(--pale-blue-transp1);
 }
 
 .cta-value {
@@ -260,7 +280,55 @@ h3 {
   color: var(--dark-blue);
 }
 
+/* *********************** */
+/* BUTTONS */
+/* *********************** */
+
+.btn {
+  display: inline-block;
+  border: none;
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 1.5rem 0;
+  border-radius: 10px;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.btn-blue {
+  background-color: var(--primary-bright-blue);
+  box-shadow: 0 1rem 3rem var(--primary-bright-blue-transp3);
+  color: var(--very-pale-blue);
+}
+
+.btn-blue:hover {
+  background-color: var(--primary-bright-blue-transp1);
+  cursor: pointer;
+}
+
+.btn-white {
+  background-color: var(--very-pale-blue);
+  color: var(--dark-blue);
+  border: 1px solid var(--primary-bright-blue-transp2);
+  box-shadow: 0 0.2rem 0.02rem var(--primary-bright-blue-transp2);
+}
+
+.btn-white:hover {
+  color: var(--primary-bright-blue);
+  cursor: pointer;
+}
+
+.btn-flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: auto;
+}
+
+/* *********************** */
 /* ANIMATIONS */
+/* *********************** */
 
 @keyframes slidein {
   0% {
@@ -286,7 +354,9 @@ h3 {
   }
 }
 
+/* *********************** */
 /* UTILITIES CLASSES*/
+/* *********************** */
 
 .slidein-animation {
   -webkit-animation: slidein 0.5s ease;
@@ -310,7 +380,9 @@ h3 {
   font-weight: 700;
 }
 
+/* *********************** */
 /* MEDIA QUERY */
+/* *********************** */
 
 @media only screen and (max-width: 62.5em) {
   .cta {
@@ -345,7 +417,7 @@ h3 {
   }
 }
 
-@media only screen and (max-width: 27.5em) {
+@media only screen and (max-width: 29.5em) {
   html {
     font-size: 58%;
   }
@@ -353,10 +425,14 @@ h3 {
   body {
     background-image: linear-gradient(
         to right bottom,
-        hsla(225, 100%, 94%, 0.726),
-        hsla(225, 100%, 94%, 0.726)
+        var(--primary-pale-blue-transp1),
+        var(--primary-pale-blue-transp1)
       ),
       url(../images/pattern-background-mobile.svg);
+  }
+
+  .card {
+    max-width: 100%;
   }
 
   .card__plan--annual {

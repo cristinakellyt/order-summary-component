@@ -11,11 +11,20 @@
       href="assets/images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <script src="assets/scripts/vendor.js" defer></script>
+    <script src="assets/scripts/vendor.js" type="module"></script>
+    <script src="assets/scripts/color_mode.js" type="module"></script>
   </head>
 
-  <body>
+  <body id="body">
     <main>
+      <div class="color-mode">
+        <img
+          id="color-mode"
+          src="assets/svg/toggle-right-24-regular.svg"
+          alt="Toggle"
+        />
+        <p id="color-mode-type"></p>
+      </div>
       <section class="card">
         <img
           src="assets/images/illustration-hero.svg"
@@ -54,7 +63,6 @@
           <button class="btn btn-white">Cancel Order</button>
         </div>
       </section>
-
       <section id="pop-up" class="pop-up">
         <div id="cta" class="cta">
           <div class="cta-data">
