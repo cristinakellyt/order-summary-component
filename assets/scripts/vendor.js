@@ -18,13 +18,13 @@ const feeValue = 1.0;
 
 setCardPlanAndPrice('Annual Plan', dollarSign, annualPrice, '/year');
 
-function setTotalValue(dollar, billingCycle, feePrice) {
+function setTotalValue(currency, billingCycle, feeCost) {
   totalValue.textContent =
-    dollar + parseFloat(billingCycle + feePrice).toPrecision(4);
+    currency + parseFloat(billingCycle + feeCost).toPrecision(4);
 }
 
-function setPlanValue(dollar, billingCycle) {
-  planValue.textContent = dollar + billingCycle;
+function setPlanValue(currency, billingCycle) {
+  planValue.textContent = currency + billingCycle;
 }
 
 function showPopUpHandler() {
