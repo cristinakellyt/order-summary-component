@@ -40,7 +40,7 @@ function showPopUpHandler() {
     btnMonthly.checked = true;
     setPlanValue(dollarSign, monthlyPrice);
     setTotalValue(dollarSign, monthlyPrice, feeValue);
-    setCardPlanAndPrice('Monthly', dollarSign, monthlyPrice, '/month');
+    setCardPlanAndPrice('Monthly Plan', dollarSign, monthlyPrice, '/month');
   }
   fee.textContent = dollarSign + parseFloat(feeValue).toPrecision(3);
 }
@@ -52,7 +52,7 @@ function closePopUpHandler() {
   if (btnAnnual.checked == true) {
     setCardPlanAndPrice('Annual Plan', dollarSign, annualPrice, '/year');
   } else {
-    setCardPlanAndPrice('Monthly', dollarSign, monthlyPrice, '/month');
+    setCardPlanAndPrice('Monthly Plan', dollarSign, monthlyPrice, '/month');
   }
   setTimeout(delayClosePopUp, 320);
 }
