@@ -1,31 +1,23 @@
-const btnPayment = document.getElementById('btn-payment');
+import {
+  planType,
+  annualPrice,
+  dollarSign,
+  monthlyPrice,
+  setCardPlanAndPrice,
+} from './prime_plan.js';
+
 const btnBack = document.getElementById('btn-back');
 const btnAnnual = document.getElementById('annual');
 const btnMonthly = document.getElementById('monthly');
-const btnChange = document.getElementById('btn-change');
+
+const planValue = document.getElementById('plan-value');
+const totalValue = document.getElementById('total-value');
 
 const cta = document.getElementById('cta');
 const popUp = document.getElementById('pop-up');
-const planValue = document.getElementById('plan-value');
-const totalValue = document.getElementById('total-value');
+
 const fee = document.getElementById('fee');
-const planType = document.getElementById('plan-type');
-const planPrice = document.getElementById('plan-price');
-const dollarSign = '$';
-const annualPrice = 59.99;
-const monthlyPrice = 66.65;
 const feeValue = 1.0;
-
-setCardPlanAndPrice('Annual Plan', dollarSign, annualPrice, '/year');
-
-function setTotalValue(currency, billingCycle, feeCost) {
-  totalValue.textContent =
-    currency + parseFloat(billingCycle + feeCost).toPrecision(4);
-}
-
-function setPlanValue(currency, billingCycle) {
-  planValue.textContent = currency + billingCycle;
-}
 
 function showPopUpHandler() {
   popUp.classList.remove('slideout-animation');
@@ -67,25 +59,21 @@ function showMonthlyPriceHandler() {
   setTotalValue(dollarSign, monthlyPrice, feeValue);
 }
 
-function changePlanHandler() {
-  if (planType.textContent == 'Annual Plan') {
-    setCardPlanAndPrice('Monthly Plan', dollarSign, monthlyPrice, '/month');
-  } else {
-    setCardPlanAndPrice('Annual Plan', dollarSign, annualPrice, '/year');
-  }
-}
-
-function setCardPlanAndPrice(plan, currency, costPlan, time) {
-  planType.textContent = plan;
-  planPrice.textContent = currency + costPlan + time;
-}
-
 function delayClosePopUp() {
   popUp.style.display = 'none';
 }
 
-btnPayment.addEventListener('click', showPopUpHandler);
+function setPlanValue(currency, billingCycle) {
+  planValue.textContent = currency + billingCycle;
+}
+
+function setTotalValue(currency, billingCycle, feeCost) {
+  totalValue.textContent =
+    currency + parseFloat(billingCycle + feeCost).toPrecision(4);
+}
+
 btnBack.addEventListener('click', closePopUpHandler);
 btnAnnual.addEventListener('click', showAnnualPriceHandler);
 btnMonthly.addEventListener('click', showMonthlyPriceHandler);
-btnChange.addEventListener('click', changePlanHandler);
+
+export { showPopUpHandler };
