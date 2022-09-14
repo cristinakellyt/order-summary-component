@@ -10,6 +10,8 @@ const dollarSign = '$';
 const annualPrice = 59.99;
 const monthlyPrice = 66.65;
 
+const feeValue = 1.0;
+
 setCardPlanAndPrice('Annual Plan', dollarSign, annualPrice, '/year');
 
 function setCardPlanAndPrice(plan, currency, costPlan, cycle) {
@@ -26,8 +28,17 @@ function changePlanHandler() {
 }
 
 btnChange.addEventListener('click', changePlanHandler);
-btnPayment.addEventListener('click', showPopUpHandler);
+btnPayment.addEventListener('click', showPopUpWrapper);
+
+function showPopUpWrapper() {
+  showPopUpHandler(
+    dollarSign,
+    planType.textContent,
+    feeValue,
+    monthlyPrice,
+    annualPrice,
+    setCardPlanAndPrice
+  );
+}
 
 //ShowPopUp and ClosePopUp should receive as arguments the data needed to initialize its states
-
-export { planType, annualPrice, dollarSign, monthlyPrice, setCardPlanAndPrice };

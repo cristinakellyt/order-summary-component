@@ -1,14 +1,6 @@
-import {
-  planType,
-  annualPrice,
-  dollarSign,
-  monthlyPrice,
-  setCardPlanAndPrice,
-} from './prime_plan.js';
-
-const btnBack = document.getElementById('btn-back');
-const btnAnnual = document.getElementById('annual');
-const btnMonthly = document.getElementById('monthly');
+const btnBackEl = document.getElementById('btn-back');
+const btnAnnualEl = document.getElementById('annual');
+const btnMonthlyEl = document.getElementById('monthly');
 
 const planValue = document.getElementById('plan-value');
 const totalValue = document.getElementById('total-value');
@@ -17,46 +9,75 @@ const cta = document.getElementById('cta');
 const popUp = document.getElementById('pop-up');
 
 const fee = document.getElementById('fee');
-const feeValue = 1.0;
 
-function showPopUpHandler() {
+// my global varaibles
+let popUpcurrencyType = '';
+let popUpAnnualPrice = 0.0;
+let popUpMonthlyPrice = 0.0;
+let popUpFeeValue = 0.0;
+let popUpCloseCardCallback;
+
+function showPopUpHandler(
+  currency,
+  selectedPlan,
+  planFee,
+  monthlyPrice,
+  annualPrice,
+  CloseCardFuncCallBack
+) {
+  popUpcurrencyType = currency;
+  popUpAnnualPrice = annualPrice;
+  popUpMonthlyPrice = monthlyPrice;
+  popUpFeeValue = planFee;
+  popUpCloseCardCallback = CloseCardFuncCallBack;
+
   popUp.classList.remove('slideout-animation');
   cta.classList.add('slidein-animation');
   popUp.style.display = 'flex';
 
-  if (planType.textContent == 'Annual Plan') {
-    btnAnnual.checked = true;
-    setPlanValue(dollarSign, annualPrice);
-    setTotalValue(dollarSign, annualPrice, feeValue);
+  if (selectedPlan == 'Annual Plan') {
+    btnAnnualEl.checked = true;
+    setPlanValue(currency, annualPrice);
+    setTotalValue(currency, annualPrice, planFee);
   } else {
-    btnMonthly.checked = true;
-    setPlanValue(dollarSign, monthlyPrice);
-    setTotalValue(dollarSign, monthlyPrice, feeValue);
-    setCardPlanAndPrice('Monthly Plan', dollarSign, monthlyPrice, '/month');
+    btnMonthlyEl.checked = true;
+    setPlanValue(currency, monthlyPrice);
+    setTotalValue(currency, monthlyPrice, planFee);
   }
-  fee.textContent = dollarSign + parseFloat(feeValue).toPrecision(3);
+
+  fee.textContent = currency + parseFloat(planFee).toPrecision(3);
 }
 
 function closePopUpHandler() {
   cta.classList.remove('slidein-animation');
   popUp.classList.add('slideout-animation');
 
-  if (btnAnnual.checked == true) {
-    setCardPlanAndPrice('Annual Plan', dollarSign, annualPrice, '/year');
+  if (btnAnnualEl.checked == true) {
+    popUpCloseCardCallback(
+      'Annual Plan',
+      popUpcurrencyType,
+      popUpAnnualPrice,
+      '/year'
+    );
   } else {
-    setCardPlanAndPrice('Monthly Plan', dollarSign, monthlyPrice, '/month');
+    popUpCloseCardCallback(
+      'Monthly Plan',
+      popUpcurrencyType,
+      popUpMonthlyPrice,
+      '/month'
+    );
   }
   setTimeout(delayClosePopUp, 320);
 }
 
 function showAnnualPriceHandler() {
-  setPlanValue(dollarSign, annualPrice);
-  setTotalValue(dollarSign, annualPrice, feeValue);
+  setPlanValue(popUpcurrencyType, popUpAnnualPrice);
+  setTotalValue(popUpcurrencyType, popUpAnnualPrice, popUpFeeValue);
 }
 
 function showMonthlyPriceHandler() {
-  setPlanValue(dollarSign, monthlyPrice);
-  setTotalValue(dollarSign, monthlyPrice, feeValue);
+  setPlanValue(popUpcurrencyType, popUpMonthlyPrice);
+  setTotalValue(popUpcurrencyType, popUpMonthlyPrice, popUpFeeValue);
 }
 
 function delayClosePopUp() {
@@ -72,8 +93,8 @@ function setTotalValue(currency, billingCycle, feeCost) {
     currency + parseFloat(billingCycle + feeCost).toPrecision(4);
 }
 
-btnBack.addEventListener('click', closePopUpHandler);
-btnAnnual.addEventListener('click', showAnnualPriceHandler);
-btnMonthly.addEventListener('click', showMonthlyPriceHandler);
+btnBackEl.addEventListener('click', closePopUpHandler);
+btnAnnualEl.addEventListener('click', showAnnualPriceHandler);
+btnMonthlyEl.addEventListener('click', showMonthlyPriceHandler);
 
 export { showPopUpHandler };
